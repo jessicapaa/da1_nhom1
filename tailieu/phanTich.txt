@@ -1,0 +1,22 @@
+Phân tích dự án :
+
+- Frontend :
+    - Trang chủ
+    - Trang danh sách sản phẩm
+    - Trang chi tiết sản phẩm ( bình luận )
+    - Trang giỏ hàng 
+    - Trang checkout ( nhập thông tin người mua hàng )
+    - Trang thanh toán hoàn thành
+    - Trang liên hệ
+    - Trang tin tức
+    - Trang đăng nhập đăng ký
+-Backend : 
+    - Tài khoản người dùng :
+          Quản lý role (admin , user)
+          Quản lý người dùng : admin/user
+    - Quản lý danh mục sản phẩm
+    - Quản lý sản phẩm
+    - Quản lý đơn hàng
+        -> hiện thị được danh sách đơn hàng trạng thái
+    - Quản lý phản hồi 
+    - Quản lý bài viết          

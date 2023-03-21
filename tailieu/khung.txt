@@ -1,0 +1,24 @@
+
+Frontend :
+   - index.php ( trang mặc định hiện thị)
+   - category.php
+   - detail.php
+   - cart.php
+   - checkout.php
+   - complete.php
+   - contact.php
+Backend :
+   - authen/***
+   - user/***
+   - category/***
+   - product/***
+   - order/***
+   - feedback/***
+
+Bên ngoài : index.php ---> (admin vào hiện thị thống kê)
+
+connect 
+   - config.php -> cấu hình csdl
+   - dbhealer.php -> chứa các function dùng chung cho dự án
+utils : 
+   - utility.php -> chứa các hàm tiện ích cho cả dự án
