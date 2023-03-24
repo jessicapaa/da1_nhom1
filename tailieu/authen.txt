@@ -1,0 +1,12 @@
+Xây dựng authen :
+     Login page
+     register page
+     keep login
+
+khi login thành công :
+tạo ra token ( duy nhất : cho tài khoản tại thời điểm login)     
+sau khi gender ra token gán qua cookie để sau này ng dùng truy cập trang web ở bất khi trình duyệt nào 
+lưu token vào csdl để quản lý  
+validate login auto
+-> check xem của ng dùng nào -> validate auto login 
+dùng session tối ưu 

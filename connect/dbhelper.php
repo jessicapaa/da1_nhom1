@@ -29,7 +29,7 @@ function executeResult ($sql , $isSingle = false) {
      
         if($isSingle) {
             $data = mysqli_fetch_array($resultset, 1);
-      }else {
+       }else {
         $data = [];
         while (($row = mysqli_fetch_array($resultset, 1)) != null) {
             $data[] = $row;

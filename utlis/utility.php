@@ -39,3 +39,22 @@ function getCookie($key) {
     return trim($value);
 
 }
+
+function getUserToken() {
+    if(isset($_SESSION['user'])) {
+        return $_SESSION['user'];
+    }
+    $token = getCookie('token');
+    $sql = "SELECT * FROM tokens where token = '$token'";
+    $item = executeResult($sql,true);
+    if($item != null) {
+        $userId = $item['user_id'];
+        $sql = "SELECT * FROM user where id = '$userId'";
+        $item = executeResult($sql,true);
+        if($item != null) { 
+            $_SESSION['user'] = $item;
+            return $item;
+        }
+    }
+    return null;
+}

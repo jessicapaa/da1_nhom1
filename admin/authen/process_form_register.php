@@ -3,7 +3,7 @@ require_once('../../utlis/utility.php');
 $fullname = $email = '';
 $msg = '';
 
-if(!empty($_POST)) {
+if(isset($_POST)) {
     $fullname = getPost('fullname');
     $email = getPost('email');
     $number = getPost('number');
@@ -11,7 +11,7 @@ if(!empty($_POST)) {
      
     // check lỗi 
     if(empty($fullname) || empty($email) || empty($number) || empty($password) || strlen($password) < 6) {
-
+             
     }else {
         // validate thành công 
         $userExist = executeResult("select * from  user where email = '$email' ",true );
@@ -20,12 +20,11 @@ if(!empty($_POST)) {
         }else {
             $created_at = $updated_at = date('Y-m-d H:i:s');
 
-            
              $sql = "INSERT INTO `user` (`fullname`, `email`, `phone_number`, `address`, `password`, `role_id`, `created_at`, `updated_at`, `deleted`)
               VALUES ( '$fullname', '$email', '$number', '0', '$password', '2','$created_at' ,'$updated_at' , 0)" ;
              execute($sql);
              header('Location: login.php');
-            //  die();
+             die();
         }
     }
 }

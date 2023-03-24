@@ -82,6 +82,13 @@ CREATE TABLE `Order_Details` (
   `total_money` int
 );
 
+CREATE TABLE `Tokens` (
+  `user_id` int REFERENCES user(id),
+  `token` varchar (32) not null,
+  `created_at` datetime,
+  PRIMARY key (user_id, token)
+)
+
 ALTER TABLE `User` ADD FOREIGN KEY (`role_id`) REFERENCES `Role` (`id`);
 
 ALTER TABLE `Product` ADD FOREIGN KEY (`category_id`) REFERENCES `Category` (`id`);

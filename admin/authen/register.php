@@ -1,6 +1,13 @@
 <?php
+session_start();
  require_once('../../connect/dbhelper.php');
  require_once('process_form_register.php');
+
+ $user = getUserToken();
+if($user != null) {
+  header('Location: ../');
+  die();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
