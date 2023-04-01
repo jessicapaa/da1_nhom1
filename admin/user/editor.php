@@ -1,5 +1,5 @@
 <?php
-require_once('../../utlis/utility.php');
+require_once('../utlis/utility.php');
 
 if (!empty($_POST)) {
     $id = getPost('id');
@@ -11,10 +11,16 @@ if (!empty($_POST)) {
     $role_id  = getPost('role_id');
     $created_at = $updated_at = date('Y-m-d H:i:s');
 
-    $sql = "SELECT * FROM user where email = '$email'";
-    $userItem = executeResult($sql, true);
+    
     if ($id > 0) {
         //update
+        $sql = "SELECT * FROM user where email = '$email' and id <> '$id'";
+    $userItem = executeResult($sql, true);
+
+    if($userItem !=null) {
+        $msg = 'Email đã tồn tại, vui lòng chọn email khác ';
+
+    }else {
         if ($password != '') {
             $sql = "UPDATE user SET 
             fullname = '$fullname',
@@ -36,8 +42,12 @@ if (!empty($_POST)) {
             WHERE id = '$id'";
         }
         execute($sql);
-        header('Location: index.php');
+        // header('Location: index.php');
+        header('Location:index.php?act=listUser');
+
         die();
+    }
+        
     } else {
         // insert
         if ($userItem == null) {
@@ -45,7 +55,7 @@ if (!empty($_POST)) {
             $sql = "INSERT INTO `user` (`fullname`, `email`, `phone_number`, `address`, `password`, `role_id`, `created_at`, `updated_at`, `deleted`)
                     VALUES ( '$fullname', '$email', '$phone_number', '$address', '$password', '$role_id','$created_at' ,'$updated_at' , 0)";
             execute($sql);
-            header('Location: index.php');
+            header('Location:index.php?act=listUser');
             die();
         } else {
             $msg = 'Email đã được đăng ký ';

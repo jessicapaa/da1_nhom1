@@ -39,3 +39,15 @@ function executeResult ($sql , $isSingle = false) {
       mysqli_close($conn);
       return $data;
 }
+function deleteUser($id) {
+  $sql = "DELETE FROM user WHERE id = $id";
+  execute($sql);
+}
+function deleteCate($id) {
+  $sql = "DELETE FROM category WHERE id = $id";
+  execute($sql);
+}
+function deleteProduct($id) {
+  $sql = "DELETE FROM product WHERE id = $id";
+  execute($sql);
+}

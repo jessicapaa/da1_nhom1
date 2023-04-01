@@ -1,8 +1,7 @@
 <?php
 $title = "Update tài khoản ";
-$baseURL = '../';
+$baseURL = '';
 
-require_once('../layouts/header.php');
 $msg = $fullname = $email = $phone_number = $address = $role_id = $id = '';
 
 require_once('editor.php');
@@ -106,4 +105,3 @@ if ($id != '' && $id > 0) {
         }
     }
 </script>
-<?php require_once('../layouts/footer.php') ?>
