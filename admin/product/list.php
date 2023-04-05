@@ -40,6 +40,7 @@ $data = executeResult($sql);
                                 <th>Gỉam giá</th>
                                 <th>Danh mục</th>
                                 <th>Nội dung</th>
+                                <th>Lượt xem</th>
                                 <th class="" colspan="2">Action</th>
                             </tr>
                         </thead class="mt-[10px]">
@@ -57,13 +58,14 @@ $data = executeResult($sql);
                                 <tr>
                                     <th><?= ++$index ?></th>
                                     <th>
-                                        <img src="../public/photo<?= $item['thumbnail'] ?>" style=" height: 100px;" alt="">
+                                        <img src="../public/photo/<?= $item['thumbnail'] ?>" style=" height: 100px;" alt="">
                                     </th>
                                     <th><?= $item['title'] ?></th>
                                     <th><?= number_format($item['price']) ?> VNĐ</th>
                                     <th><?= number_format($item['discount']) ?> VNĐ</th>
                                     <th><?= $item['category_name'] ?></th>
                                     <th><?= $item['description'] ?></th>
+                                    <th><?= $item['view'] ?></th>
                                     <td>
                                         <a href="<?= $updateProduct ?>" class="btn bg-[blue] text-white hover:bg-[blue] ">Sửa</a>
                                         <a href="<?= $deleteProduct ?>" class="btn bg-[red] text-white hover:bg-[blue]" onclick="return confirm('Xác nhận xóa') ">Xóa</a>

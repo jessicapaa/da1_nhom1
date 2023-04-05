@@ -61,6 +61,37 @@ if (isset($_GET['act'])) {
             deleteProduct($id);
             include 'product/list.php';
             break;
+
+            // phản hồi
+        case 'feedback':
+            include 'feedback/list.php';
+            break;
+        case 'view':
+            $id = $_GET['id'];
+            viewEd($id);
+            include 'feedback/list.php';
+            break;
+
+            // order
+        case 'listOrder': 
+            include 'order/list.php';
+            break;
+        case 'hoanThanh': 
+            $id = $_GET['id'];
+            $sql = "UPDATE orders set status = 1 where id = $id";
+            execute($sql);
+            include 'order/list.php';
+            break;
+        case 'huy': 
+            $id = $_GET['id'];
+            $sql = "UPDATE orders set status = 2 where id = $id";
+            execute($sql);
+            include 'order/list.php';
+            break;
+          //detail
+        case 'detail':
+            include 'order/detail.php';
+            break;
     }
 }
 

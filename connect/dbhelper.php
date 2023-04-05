@@ -51,3 +51,11 @@ function deleteProduct($id) {
   $sql = "DELETE FROM product WHERE id = $id";
   execute($sql);
 }
+
+function viewEd($id) {
+  
+    $update_at = date('Y-m-d H:i:s');
+    $sql = "UPDATE feedback SET status = 1, updated_at = '$update_at' WHERE id = '$id'";
+    execute($sql);
+}
+

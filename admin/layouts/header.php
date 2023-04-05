@@ -117,7 +117,7 @@ if ($user == null) {
                             </a>
                         </li>
                         <li class="sidebar-item ">
-                            <a href="<?= $baseURL ?>order" class='sidebar-link'>
+                            <a href="<?= $baseURL ?>index.php?act=listOrder" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Quản lý đơn hàng</span>
                             </a>

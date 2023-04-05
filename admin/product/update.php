@@ -31,6 +31,11 @@ if ($id != '' && $id > 0) {
 ?>
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<div class="card-header d-flex flex-wrap justify-content-between align-items-center">
+                    <div class="font-semibold text-xl">Sản phẩm</div>
+                    <a href="index.php?act=listProduct" class="btn btn-primary my-3">Danh sách sản phẩm
+                    </a>
+                </div>
 <div class="h-screen font-sans login bg-cover">
     <div class="container mx-auto flex flex-1 justify-center items-center">
 

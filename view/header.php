@@ -1,51 +1,56 @@
+<?php
+$sql = "select * from Category";
+$menuItems = executeResult($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Home</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="public/images/icons/favicon.png"/>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="public/images/icons/favicon.png" />
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="public/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="public/fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="public/fonts/linearicons-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="public/vendor/animate/animate.css">
-<!--===============================================================================================-->	
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="public/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
 	<link rel="stylesheet" type="text/css" href="public/vendor/animsition/css/">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="public/vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="public/vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="public/vendor/slick/slick.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="public/vendor/MagnificPopup/magnific-popup.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="public/vendor/perfect-scrollbar/perfect-scrollbar.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="public/css/util.css">
 	<link rel="stylesheet" type="text/css" href="public/css/main.css">
 	<script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="auth.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="auth.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<style>
-		
+
 	</style>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 </head>
+
 <body class="animsition">
-	
+
 	<!-- Header -->
 	<header>
 		<!-- Header desktop -->
@@ -63,22 +68,22 @@
 						</a> -->
 
 						<a href="index.php?act=login" class="flex-c-m trans-04 p-lr-25">
-							ĐĂNG NHẬP 
+							ĐĂNG NHẬP
 						</a>
 						<a href="index.php?act=register" class="flex-c-m trans-04 p-lr-25 m-ll-25">
-							ĐĂNG KÝ 
+							ĐĂNG KÝ
 						</a>
 
-						
+
 					</div>
 				</div>
 			</div>
 
 			<div class="wrap-menu-desktop">
 				<nav class="limiter-menu-desktop container">
-					
-					<!-- Logo desktop -->		
-					<a href="#" class="logo">
+
+					<!-- Logo desktop -->
+					<a href="index.php?act=home" class="logo">
 						<img src="public/images/icons/logo-01.png" alt="IMG-LOGO">
 					</a>
 
@@ -95,26 +100,26 @@
 							</li>
 
 							<li>
-								<a href="index.php?act=cart">Shop</a>
+								<a href="index.php?act=shop">Shop</a>
 							</li>
 
 							<!-- <li  class="label1" data-label1="hot">
 								<a href="blog.html">Tin tức</a>
 							</li> -->
+							<?php
+							foreach ($menuItems as $item) {
+								echo '<li>
+				                 <a href="index.php?act=category&id=' . $item['id'] . '">' . $item['name'] . '</a>
+				                      </li>';
+							}
+							?>
 
 							<li>
-								<a href="about.html">About  us</a>
+								<a href="index.php?act=contact">Liên hệ</a>
 							</li>
 
-							<li>
-								<a href="contact.html">Liên hệ</a>
-							</li>
-
-							<li>
-								<a href="shoping-cart.html">Giỏ hàng </a>
-							</li>
 						</ul>
-					</div>	
+					</div>
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
@@ -131,12 +136,12 @@
 						</a>
 					</div>
 				</nav>
-			</div>	
+			</div>
 		</div>
 
 		<!-- Header Mobile -->
 		<div class="wrap-header-mobile">
-			<!-- Logo moblie -->		
+			<!-- Logo moblie -->
 			<div class="logo-mobile">
 				<a href="index.html"><img src="public/images/icons/logo-01.png" alt="IMG-LOGO"></a>
 			</div>
@@ -205,7 +210,7 @@
 				</li>
 
 				<li>
-					<a href="product.html">Shop</a>
+					<a href="index.php?act=shop">Shop</a>
 				</li>
 
 				<li>
@@ -242,3 +247,5 @@
 			</div>
 		</div>
 	</header>
+	<div id="quickViewctn">
+	</div>

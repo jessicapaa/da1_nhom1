@@ -45,7 +45,7 @@ if (isset($_POST['themmoi']) && $_POST['themmoi']) {
           $file_extension = strtolower(end($file_extension));
           if (in_array($file_extension, $duoiAnh)) {
                if ($image_size < 2000000) {
-                    move_uploaded_file($image_tmp, '../public/photo' . $thumbnail);
+                    move_uploaded_file($image_tmp, '../public/photo/' . $thumbnail);
                } else {
                     $error['image'] = "File ảnh lớn quá";
                }
@@ -92,7 +92,7 @@ if (isset($_POST['themmoi']) && $_POST['themmoi']) {
                     where id = '$id'";
                }
                execute($sql);
-               header('Location :index.php?act=listProduct');
+               // header('Location :index.php?act=listProduct');
           } else {
                // insert
                $sql = "
@@ -100,8 +100,8 @@ if (isset($_POST['themmoi']) && $_POST['themmoi']) {
          values ('$thumbnail', '$title', '$price', '$discount','$description', '$created_at', '$updated_at', '$category_id',0)";
 
                execute($sql);
-               header('Location :../index.php?act=listProduct');
-               die();
+               // header('Location :../index.php?act=listProduct');
+               // die();
           }
      }
 }

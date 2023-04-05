@@ -55,7 +55,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 @font-face {
-  font-family: Poppins-Medium;
+  font-family: o-Medium;
   src: url('../fonts/Poppins/Poppins-Medium.ttf'); 
 }
 
@@ -1702,7 +1702,7 @@ button.mfp-close {
 }
 
 
-/*//////////////////////////////////////////////////////////////////
+/*////////////////////////////////////////x//////////////////////////
 [ Filter ]*/
 .show-search .icon-search,
 .show-filter .icon-filter {display: none;}
@@ -1885,12 +1885,10 @@ input.num-product::-webkit-inner-spin-button {
   left: 0;
   z-index: 9000;
   overflow: auto;
-
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
-
   visibility: hidden;
   opacity: 0;
 }
@@ -1903,7 +1901,7 @@ input.num-product::-webkit-inner-spin-button {
   top: 0;
   left: 0;
   background: #000;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 .show-modal1 {
@@ -2181,9 +2179,10 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .stext-106 {
-  font-family: Poppins-Regular;
+  /* font-family: Poppins-Regular; */
   font-size: 15px;
   line-height: 1.2;
+  font-weight: bold;
 }
 
 .stext-107 {
@@ -2362,10 +2361,11 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .ltext-103 {
-  font-family: Poppins-Bold;
+  /* font-family: Poppins-Bold; */
   font-size: 36px;
   line-height: 1.1;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 .ltext-104 {
