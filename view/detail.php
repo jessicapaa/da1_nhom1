@@ -3,6 +3,11 @@ $productId = getGet('id');
 $sql = "select Product.*, Category.name as category_name from Product left join Category on Product.category_id = Category.id where Product.id = $productId";
 $product = executeResult($sql, true);
 
+if (isset($productId)) {
+	$sql = "update product set view = view + 1 where id = '$productId'";
+	execute($sql);
+}
+
 $category_id = $product['category_id'];
 $sql = "select Product.*, Category.name as category_name from Product left join Category on Product.category_id = Category.id where Product.category_id = $category_id order by Product.updated_at desc limit 0,4";
 
@@ -108,13 +113,18 @@ $lastestItems = executeResult($sql);
 								<i class="fs-16 zmdi zmdi-minus"></i>
 							</div>
 
-							<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+							<input class="mtext-104 cl3 txt-center num-product" type="number" name="num" value="1">
 
 							<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
 								<i class="fs-16 zmdi zmdi-plus"></i>
 							</div>
 						</div>
 					</div>
+					<!-- <div style="display: flex;">
+						<button class="btn btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m" style="border: solid #e0dede 1px; border-radius: 0px;" onclick="addMoreCart(-1)">-</button>
+						<input type="number" name="num" class="mtext-104 num-product txt-center form-control" step="1" value="1" style="max-width: 90px;border: solid #e0dede 1px; border-radius: 0px;" onchange="fixCartNum()">
+						<button class="btn btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m" style="border: solid #e0dede 1px; border-radius: 0px;" onclick="addMoreCart(1)">+</button>
+					</div> -->
 					<button class="btn btn-success" style="margin-top: 20px; width: 100%; border-radius: 0px; font-size: 30px;" onclick="addCart(<?= $product['id'] ?>, $('[name=num]').val())">
 						<i class="bi bi-cart-plus-fill"></i> THÊM VÀO GIỎ HÀNG
 					</button>
@@ -330,9 +340,10 @@ $lastestItems = executeResult($sql);
 			</h3>
 		</div>
 
+		<!-- hiện thị sản phẩm  -->
 		<div class="row isotope-grid">
-			<!-- hiện thị sản phẩm  -->
 			<?php foreach ($lastestItems as $item) :
+
 				$id = $item['id'];
 				$quickView = "index.php?act=quickView&id=$id";
 			?>
@@ -379,16 +390,19 @@ $lastestItems = executeResult($sql);
 			<!-- modal quick view -->
 			<div id="quickViewctn">
 			</div>
-
 		</div>
-
-		<!-- Load more -->
-		<!-- <div class="flex-c-m flex-w w-full p-t-45">
-				<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-					Load More
-	</div>
-				</a>
-			</div> -->
 	</div>
 
 </section>
+<script>
+	function addMoreCart(delta) {
+		num = parseInt($('[name=num]').val())
+		num += delta
+		if (num < 1) num = 1;
+		$('[name=num]').val(num)
+	}
+
+	function fixCartNum() {
+		$('[name=num]').val(Math.abs($('[name=num]').val()))
+	}
+</script>

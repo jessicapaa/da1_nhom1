@@ -1,10 +1,17 @@
 <?php
 session_start();
-require_once('../../utlis/utility.php');
-require_once '../../connect/dbhelper.php';
 
-$token = getCookie('token');
-setcookie('token', '' , time() - 100, '/');
+require_once('../../utils/utility.php');
+require_once('../../database/dbhelper.php');
 
+$user = getUserToken();
+if($user != null) {
+	$token = getCookie('token');
+	$id = $user['id'];
+	$sql = "delete from tokens where user_id = '$id' and token = '$token'";
+	execute($sql);
+	setcookie('token', '', time() - 100, '/');
+}
+header('Location: login.php');
 
 session_destroy();

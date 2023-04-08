@@ -34,8 +34,7 @@ $data = executeResult($sql);
                         <thead>
                             <tr>
                                 <th>STT</th>
-                                <th>Họ </th>
-                                <th>Tên </th>
+                                <th>Họ và tên</th>
                                 <th>Email</th>
                                 <th>SĐT</th>
                                 <th>Chủ đề</th>
@@ -58,13 +57,12 @@ $data = executeResult($sql);
         
                                 <tr>
                                 <th><?=++$index?></th>
-                                <th><?=$item['lastname']?></th>
-                                <th><?=$item['firstname']?></th>
+                                <th><?=$item['fullname']?></th>
                                 <th><?=$item['email']?></th>
                                 <th><?=$item['phone_number']?></th>
                                 <th><?=$item['subject_name']?></th>
                                 <th><?=$item['note']?></th>
-                                <th><?=$item['updated_at']?></th>
+                                <th><?=$item['created_at']?></th>
                                <?php 
                                 if($item['status'] == 0) {
                                     echo ' <td>

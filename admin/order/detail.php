@@ -39,7 +39,7 @@ $orderItem = executeResult($sql, true);
                     echo '<tr>
 					<th>' . (++$index) . '</th>
 
-					<td><img src="../public/photo' . $item['thumbnail'] . '" style="height: 120px"/></td>
+					<td><img src="../public/photo/' . $item['thumbnail'] . '" style="height: 120px"/></td>
 					<td>' . $item['title'] . '</td>
 					<td>' . $item['price'] . '</td>
 					<td>' . $item['num'] . '</td>
@@ -53,10 +53,11 @@ $orderItem = executeResult($sql, true);
                     <td></td>
                     <td></td>
                     <th>Tổng Tiền</th>
-                    <th><?= $item['total_money'] ?></th>
+                    <th><?= $orderItem['total_money'] ?></th>
                 </tr>
             </tbody>
         </table>
+       
     </div>
     <div class="col-md-4">
         <table class="table table-bordered table-hover" style="margin-top: 20px;">

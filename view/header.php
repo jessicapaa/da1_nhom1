@@ -1,6 +1,27 @@
 <?php
+session_start();
+require_once('utlis/utility.php');
+require_once('connect/dbhelper.php');
+
 $sql = "select * from Category";
 $menuItems = executeResult($sql);
+if (!empty(session_get('user'))) {
+    $user_session = session_get('user');
+}
+$user = getUserToken();
+// '  <pre>  ';
+// print_r($user);
+
+// ' </pre>  ';
+if (!isset($_SESSION['cart'])) {
+	$_SESSION['cart'] = [];
+}
+$count = 0;
+// var_dump($_SESSION['cart']);
+foreach ($_SESSION['cart'] as $item) {
+	$count += $item['num'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -62,17 +83,30 @@ $menuItems = executeResult($sql);
 						Miễn phí đơn hàng với hóa đơn trên 1 triệu
 					</div>
 
-					<div class="right-top-bar flex-w h-full">
+					<div class="col-lg-4 col-md-2 d-none d-lg-block text-right">
+
 						<!-- <a href="#" class="flex-c-m trans-04 p-lr-25 fs-14">
 							Hỗ trợ & Hỏi đáp
 						</a> -->
-
+						<!-- 
 						<a href="index.php?act=login" class="flex-c-m trans-04 p-lr-25">
 							ĐĂNG NHẬP
 						</a>
 						<a href="index.php?act=register" class="flex-c-m trans-04 p-lr-25 m-ll-25">
 							ĐĂNG KÝ
-						</a>
+						</a> -->
+						<?php if (!empty($user)) : ?>
+							<p class="m-0 text-white">Xin chào <a class="text-decoration-underline" href=""><?= $user['fullname'] ?></a></p>
+							<div>
+								<?php if ($user['role_id'] == 1) : ?>
+									<a class="py-1 px-2 mt-2 rounded btn-secondary" href="admin">Trang quản trị</a>
+								<?php endif; ?>
+								<a class="py-1 px-2 mt-2 rounded btn-danger" href="index.php?act=logout">Đăng xuất</a>
+							</div>
+						<?php else : ?>
+							<a href="index.php?act=login" class="btn rounded p-2 me-2">Đăng nhập</a>
+							<a href="index.php?act=register" class="btn btn-secondary rounded p-2" style="background: #6c757d;">Đăng ký</a>
+						<?php endif; ?>
 
 
 					</div>
@@ -127,8 +161,14 @@ $menuItems = executeResult($sql);
 							<i class="zmdi zmdi-search"></i>
 						</div>
 
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
-							<i class="zmdi zmdi-shopping-cart"></i>
+
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="<?= $count ?>">
+							<span><?= $count ?></span>
+							<a href="index.php?act=cart">
+								<i class="zmdi zmdi-shopping-cart">
+								</i>
+							</a>
+
 						</div>
 
 						<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
