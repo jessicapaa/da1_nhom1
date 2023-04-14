@@ -19,4 +19,43 @@
             <a href="index.php?act=home"><button class="btn btn-success my-[40px]" style="border-radius: 0px; font-size: 26px;">TIẾP TỤC MUA HÀNG</button></a>
         </div>
     </div>
+
+    <div class="table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Ảnh sản phẩm</td>
+                    <td>Tên</td>
+                    <td>Gía</td>
+                    <td>Số lượng</td>
+                    <td>Tổng tiền</td>
+                </tr>
+            <tbody>
+                <?php
+                if (!isset($_SESSION['cart'])) {
+                    $_SESSION['cart'] = [];
+                }
+                $index = 0;
+                foreach ($_SESSION['cart'] as $item) {
+                    echo '<tr>
+			<td>' . (++$index) . '</td>
+			<td><img src="./public/photo/' . $item['thumbnail'] . '"style="height: 80px"/></td>
+			<td>' . $item['title'] . '</td>
+			<td>' . number_format($item['discount']) . ' VND</td>
+			<td style="display: flex"><button class="btn btn-light" style="border: solid #e0dede 1px; border-radius: 0px;" onclick="addMoreCart(' . $item['id'] . ', -1)">-</button>
+				<input type="number" id="num_' . $item['id'] . '" value="' . $item['num'] . '" class="form-control" style="width: 90px; border-radius: 0px" onchange="fixCartNum(' . $item['id'] . ')"/>
+				<button class="btn btn-light" style="border: solid #e0dede 1px; border-radius: 0px;" onclick="addMoreCart(' . $item['id'] . ', 1)">+</button>
+			</td>
+			<td>' . number_format($item['discount'] * $item['num']) . ' VND</td>
+			<td><button class="btn btn-danger" onclick="updateCart(' . $item['id'] . ', 0)">Xoá</button></td>
+		</tr>';
+                }
+	unset($_SESSION['cart']);
+
+                ?>
+            </tbody>
+            </thead>
+        </table>
+    </div>
 </div>

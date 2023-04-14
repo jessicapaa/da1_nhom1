@@ -1,53 +1,21 @@
 <?php
-session_start();
+// require_once 'process_form_login.php';
 
-require_once('../../utlis/utility.php');
-require_once '../../connect/dbhelper.php';
-require_once 'process_form_login.php';
+// $user = getUserToken();
 
-$user = getUserToken();
-if($user != null) {
-  header('Location: ../');
-  die();
-}
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="auth.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    .input {
-      position: relative;
-    }
-
-    .icon {
-      position: absolute;
-      top: 22px;
-      left: 7px;
-    }
-  </style>
-
-</head>
-
-<body>
   <div class="h-screen font-sans login bg-cover">
     <div class="container mx-auto h-full flex flex-1 justify-center items-center">
 
       <div class="leading-loose">
 
 
-        <form class="w-[700px]" method="POST">
+        <form action="" class="w-[700px]" method="POST">
           <h1 class="text-[#106ba2] font-bold text-center text-[40px] mb-[20px] font-bold">Đăng nhập</h1>
           <p class="text-[#106ba2] font-medium text-center text-[15px] mb-[20px] font-bold">Đăng nhập vào abc</p>
           <p class="text-[red] font-medium text-center text-[25px] mb-[20px] font-bold">
-            <?= $msg; ?>
+            <?= $msg??'' ?>
           </p>
           <div class="flex input items-center text-lg  mb-6 md:mb-8">
             <i class="ml-[8px] mt-[2px] icon fa-regular  fa-envelope text-[#106ba2]"></i>
@@ -78,6 +46,3 @@ if($user != null) {
 
     </div>
   </div>
-</body>
-
-</html>

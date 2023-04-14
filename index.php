@@ -1,5 +1,6 @@
 <?php
 // session_start();
+ob_start();
 require_once('connect/config.php');
 require_once('connect/dbhelper.php');
 require_once('utlis/utility.php');
@@ -12,11 +13,14 @@ if (isset($_GET['act']) && $_GET['act']) {
     switch ($act) {
 
         case 'login':
-            include 'view/auth/login.php';
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                include 'view/authen/process_form_login.php';
+            }
+            include 'view/authen/login.php';
             break;
         case 'logout':
-            $user = getUserToken();
             if ($user != null) {
+                $user = getUserToken();
                 $token = getCookie('token');
                 $id = $user['id'];
                 $sql = "delete from tokens where user_id = '$id' and token = '$token'";
@@ -24,8 +28,8 @@ if (isset($_GET['act']) && $_GET['act']) {
                 setcookie('token', '', time() - 100, '/');
             }
             session_destroy();
-             require_once('view/home.php');
 
+            require_once('view/home.php');
             break;
         case 'register':
             include './view/auth/register.php';
@@ -50,6 +54,9 @@ if (isset($_GET['act']) && $_GET['act']) {
             break;
         case 'complete':
             include 'view/complete.php';
+            break;
+        case 'lichsu':
+            include 'view/lichsu.php';
             break;
 
 

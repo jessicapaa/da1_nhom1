@@ -5,9 +5,7 @@ require_once('connect/dbhelper.php');
 
 $sql = "select * from Category";
 $menuItems = executeResult($sql);
-if (!empty(session_get('user'))) {
-    $user_session = session_get('user');
-}
+
 $user = getUserToken();
 // '  <pre>  ';
 // print_r($user);
@@ -65,7 +63,15 @@ foreach ($_SESSION['cart'] as $item) {
 	<link rel="stylesheet" href="auth.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<style>
+ .input {
+      position: relative;
+    }
 
+    .icon {
+      position: absolute;
+      top: 22px;
+      left: 7px;
+    }
 	</style>
 	<!--===============================================================================================-->
 </head>
@@ -151,6 +157,9 @@ foreach ($_SESSION['cart'] as $item) {
 							<li>
 								<a href="index.php?act=contact">Liên hệ</a>
 							</li>
+							<li>
+								<a href="index.php?act=lichsu">Lịch sử đơn hàng</a>
+							</li>
 
 						</ul>
 					</div>
@@ -163,7 +172,7 @@ foreach ($_SESSION['cart'] as $item) {
 
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="<?= $count ?>">
-							<span><?= $count ?></span>
+							<!-- <span><?= $count ?></span> -->
 							<a href="index.php?act=cart">
 								<i class="zmdi zmdi-shopping-cart">
 								</i>

@@ -15,7 +15,7 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form-group">
-			  <input required="true" type="text" class="form-control" id="usr" name="fullname" placeholder="Nhập họ * tên">
+			  <input required="true" type="text" value="<?=!empty($_SESSION['user']['fullname']) ? $_SESSION['user']['fullname'] : ''   ?>" class="form-control" id="usr" name="fullname" placeholder="Nhập họ * tên">
 			</div>
 			<div class="form-group">
 			  <input required="true" type="email" class="form-control" id="email" name="email" placeholder="Nhập email">

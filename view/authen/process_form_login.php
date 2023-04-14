@@ -1,5 +1,5 @@
 <?php
-require_once ('../../utlis/utility.php');
+// require_once ('../../utlis/utility.php');
 $fullname = $email = $msg = '';
 
 if(isset($_POST['submit'])) {
@@ -26,7 +26,7 @@ if(isset($_POST['submit'])) {
         values ('$userId', '$token', '$created_at')";
         execute($sql);
         // login thành công
-        header('Location: ../index.php');
+        header('location: index.php');
         die();
     }
 

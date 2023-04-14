@@ -59,7 +59,6 @@ function checkout() {
 		execute($sql);
 	}
 
-	unset($_SESSION['cart']);
 }
 
 function updateCart() {

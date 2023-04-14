@@ -74,3 +74,7 @@ function session_delete($key): void
         unset($_SESSION[$key]);
     }
 }
+
+function checkUser($username, $password) {
+    
+}
