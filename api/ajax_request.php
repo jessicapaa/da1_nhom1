@@ -29,6 +29,7 @@ function checkout() {
 	$note = getPost("note");
 
 	$user = getUserToken();
+
 	$userId = 0;
 	if($user != null) {
 		$userId = $user['id'];
@@ -63,6 +64,7 @@ function checkout() {
 
 function updateCart() {
 	$id = getPost('id');
+	
 	$num = getPost('num');
 
 	if(!isset($_SESSION['cart'])) {

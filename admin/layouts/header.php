@@ -47,6 +47,7 @@ if ($user == null) {
         }
 
         .input {
+            
             position: relative;
         }
 
@@ -94,6 +95,7 @@ if ($user == null) {
                         </div>
                     </div>
                 </div>
+                
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
