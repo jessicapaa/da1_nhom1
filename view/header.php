@@ -72,6 +72,15 @@ foreach ($_SESSION['cart'] as $item) {
       top: 22px;
       left: 7px;
     }
+	
+	.huhu:hover + .btnH {
+  	display: block;
+	}
+
+	.btnH {
+  	display: none;
+	}
+
 
 	</style>
 	<!--===============================================================================================-->
@@ -103,8 +112,9 @@ foreach ($_SESSION['cart'] as $item) {
 							ĐĂNG KÝ
 						</a> -->
 						<?php if (!empty($user)) : ?>
-							<p class="m-0 text-white user-info">Xin chào <span><a class="text-decoration-underline" href=""><?= $user['fullname'] ?></a></span>
-  								<div class="buttons">
+								<p class="m-0 text-white huhu ">Xin chào <a href=""><?= $user['fullname'] ?></a></p>
+
+  								<div class="btnH">
     								<button>
 										<?php if ($user['role_id'] == 1) : ?>
 											<a class="py-1 px-2 mt-2 rounded btn-secondary" href="admin">Trang quản trị</a>
@@ -117,7 +127,7 @@ foreach ($_SESSION['cart'] as $item) {
 										<a class="py-1 px-2 mt-2 rounded btn-danger" href="index.php?act=logout">Đăng xuất</a>
 									</button>
   								</div>
-							</p>
+							
 							<div>
 								
 								
