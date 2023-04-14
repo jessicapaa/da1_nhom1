@@ -9,6 +9,7 @@ $result_up = array_reduce($result, function ($a, $b) {
     $a[$b['id']][] = $b;
     return $a;
 }, array());
+
 ?>
 
 <div class="container mt-[90px]">
@@ -24,67 +25,39 @@ $result_up = array_reduce($result, function ($a, $b) {
     </div>
 </div>
 <div class="container mt-[80px]" style="margin-top: 20px; margin-bottom: 20px;">
-    <div class="table">
-        <table class="table">
-            <thead>
+    <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+        <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
+            <thead class="bg-gray-50">
                 <tr>
-                    <td>STT</td>
-                    <td>Sản phẩm</td>
-                    <td></td>
-                    <td>Gía</td>
-                    <td>Số lượng</td>
-                    <td>Trạng thái</td>
-                
-                    <td colspan="2">Tổng tiền</td>
+                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">STT</th>
+                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">Sản phẩm</th>
+                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">Giá</th>
+                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">Số lượng</th>
+                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">Trạng thái đơn hàng</th>
+                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">Ngày đặt</th>
+                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">Tổng tiền</th>
                 </tr>
-            <tbody>
-                <?php
-                $stt = 0;
-                foreach ($result_up as $order) :
-                    $stt++;
-                ?>
-                    <tr>
-                        <td>
-                            <?= $stt; ?>
-                        </td>
-                        <td colspan="5">
-
-                        <?php foreach ($order as $order_detail) : ?>
-                               
-                                <div class="row">
-
-                                    <div class="col-4 flex mb-1 gap-3">
-                                        <div>
+            </thead>
+            <tbody class=" divide-gray-100 border-t border-gray-100">
+                <?php $index =1?>
+                        <?php foreach ($result_up as $order) :
+                            foreach ($order as $order_detail) : ?>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-6 py-4"><?= $index++?></td>
+                                    <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
+                                        <div class="relative h-10 w-10">
                                             <img class="" src="public/photo/<?= $order_detail['thumbnail'] ?>" alt="" width="70px">
                                         </div>
-
-                                        <div>
-                                            <?= $order_detail['title'] ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <?= $order_detail['discount'] ?>
-                                    </div>
-                                    <div class="col-3">
-                                        <?= $order_detail['num'] ?>
-                                    </div>
-                                    <div class="col"><?= $order_detail['total_money'] ?></div>
-                                </div>
-
-
-
-                            
-
-
+                                    </th>
+                                    <td class="px-6 py-4"><?= $order_detail['title'] ?></td>
+                                    <td class="px-6 py-4"><?= $order_detail['discount'] ?></td>
+                                    <td class="px-6 py-4"><?= $order_detail['num'] ?></td>
+                                    <td class="px-6 py-4"><?= $order_detail['total_money'] ?></td>
+                                </tr>
+                            <?php endforeach; ?>
                         <?php endforeach; ?>
-                        </td>
-
-                    </tr>
-
-
-                <?php endforeach ?>
             </tbody>
-            </thead>
+            
         </table>
     </div>
 </div>
