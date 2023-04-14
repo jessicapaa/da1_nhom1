@@ -26,7 +26,7 @@ $data = executeResult($sql);
                 <div class="card-header d-flex flex-wrap justify-content-between align-items-center">
                     <div class="font-semibold text-xl">Danh mục sản phẩm</div>
                     <a href="index.php?act=insertCategory" class="btn btn-primary my-3">Thêm danh mục 
-                        </a>
+                    </a>
                 </div>
                 <div class="card-body">
                     <table id="table1" class="table w-100">
@@ -40,7 +40,6 @@ $data = executeResult($sql);
                         </thead class="mt-[10px]">
                         <tbody>
                             <?php
-                            
                             $index = 0;
                             foreach ($data as $item):
                                 $id = $item['id'];
@@ -51,7 +50,6 @@ $data = executeResult($sql);
                                 <th><?=++$index?></th>
                                 <th><?=$item['name']?></th>
                                 
-                               
                                 <td>
                                     <a href="<?=$updateCate ?>" class="btn bg-[blue] text-white hover:bg-[blue] ">Sửa</a>
                                     <a href="<?=$deleteCate ?>" class="btn bg-[red] text-white hover:bg-[blue]"onclick="return confirm('Xác nhận xóa') ">Xóa</a>
