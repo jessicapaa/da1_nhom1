@@ -112,11 +112,11 @@ foreach ($_SESSION['cart'] as $item) {
 							ĐĂNG KÝ
 						</a> -->
 						<?php if (!empty($user)) : ?>
-								<p class="m-0 text-white huhu ">Xin chào <a href=""><?= $user['fullname'] ?></a></p>
+							<p class="m-0 pl-[30px] pb-[15px] text-white huhu ">Xin chào <a href=""><?= $user['fullname'] ?></a>
 
   								<div class="btnH">
     								<button>
-										<?php if ($user['role_id'] == 1) : ?>
+										<?php if ($user['role_id'] == 2) : ?>
 											<a class="py-1 px-2 mt-2 rounded btn-secondary" href="admin">Trang quản trị</a>
 										<?php endif; ?>
 									</button>
@@ -127,7 +127,7 @@ foreach ($_SESSION['cart'] as $item) {
 										<a class="py-1 px-2 mt-2 rounded btn-danger" href="index.php?act=logout">Đăng xuất</a>
 									</button>
   								</div>
-							
+							</p>
 							<div>
 								
 								
