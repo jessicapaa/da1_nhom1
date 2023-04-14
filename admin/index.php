@@ -92,7 +92,15 @@ if (isset($_GET['act'])) {
         case 'detail':
             include 'order/detail.php';
             break;
+        
+            default:
+            include 'thongke/list.php';
+
+            break;
     }
+}else {
+    include 'thongke/list.php';
+
 }
 
 require_once('layouts/footer.php');

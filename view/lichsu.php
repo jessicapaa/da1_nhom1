@@ -33,7 +33,6 @@ $result_up = array_reduce($result, function ($a, $b) {
                     <td></td>
                     <td>Gía</td>
                     <td>Số lượng</td>
-                    <td>Trạng thái</td>
                 
                     <td colspan="2">Tổng tiền</td>
                 </tr>
@@ -70,12 +69,6 @@ $result_up = array_reduce($result, function ($a, $b) {
                                     </div>
                                     <div class="col"><?= $order_detail['total_money'] ?></div>
                                 </div>
-
-
-
-                            
-
-
                         <?php endforeach; ?>
                         </td>
 

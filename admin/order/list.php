@@ -22,7 +22,7 @@ if (isset($_POST['hoanThanh']) && $_POST['hoanThanh']) {
 
     <div class="page-heading">
         <h1 class="text-xl font-bold">Quản lý đơn hàng</h1>
-        <a href="http://localhost/da1-nhom1" class="">Về trang chủ</a>
+        <a href="http://localhost/da1_nhom1/" class="">Về trang chủ</a>
     </div>
     <div class="page-content">
         <section class="section">

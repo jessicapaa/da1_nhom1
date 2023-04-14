@@ -18,7 +18,7 @@ $data = executeResult($sql);
 
     <div class="page-heading">
         <h1 class="text-xl font-bold">Quản lý người dùng</h1>
-        <a href="http://localhost/da1-nhom1" class="">Về trang chủ</a>
+        <a href="http://localhost/da1_nhom1/" class="">Về trang chủ</a>
     </div>
     <div class="page-content">
         <section class="section">

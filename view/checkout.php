@@ -18,13 +18,13 @@
 			  <input required="true" type="text" value="<?=!empty($_SESSION['user']['fullname']) ? $_SESSION['user']['fullname'] : ''   ?>" class="form-control" id="usr" name="fullname" placeholder="Nhập họ * tên">
 			</div>
 			<div class="form-group">
-			  <input required="true" type="email" class="form-control" id="email" name="email" placeholder="Nhập email">
+			  <input required="true" type="email" value="<?=!empty($_SESSION['user']['email']) ? $_SESSION['user']['email'] : ''   ?>" class="form-control" id="email" name="email" placeholder="Nhập email">
 			</div>
 			<div class="form-group">
-			  <input required="true" type="tel" class="form-control" id="phone" name="phone" placeholder="Nhập sđt">
+			  <input required="true" type="tel" value="<?=!empty($_SESSION['user']['phone_number']) ? $_SESSION['user']['phone_number'] : ''   ?>" class="form-control" id="phone" name="phone" placeholder="Nhập sđt">
 			</div>
 			<div class="form-group">
-			  <input required="true" type="text" class="form-control" id="address" name="address" placeholder="Nhập địa chỉ">
+			  <input required="true" type="text" value="<?=!empty($_SESSION['user']['address']) ? $_SESSION['user']['address'] : ''   ?>" class="form-control" id="address" name="address" placeholder="Nhập địa chỉ">
 			</div>
 			<div class="form-group">
 			  <label for="pwd">Nội dung:</label>
@@ -58,6 +58,7 @@ foreach($_SESSION['cart'] as $item) {
 }
 ?>
 		</table>
+		
 		<a href="index.php?act=checkout"><button class="btn btn-success" style="border-radius: 0px; font-size: 26px; width: 100%;">THANH TOÁN</button></a>
 		</div>
 	</div>
