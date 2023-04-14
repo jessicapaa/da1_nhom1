@@ -3691,6 +3691,7 @@ iframe {border: none;}
   background-size: cover;
 }
 
+
 @media (max-width: 992px) {
   .parallax100 {
     background-attachment: inherit;
