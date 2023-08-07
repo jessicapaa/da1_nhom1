@@ -32,7 +32,10 @@ if (isset($_GET['act']) && $_GET['act']) {
             require_once('view/home.php');
             break;
         case 'register':
-            include './view/auth/register.php';
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                include 'view/authen/process_form_register.php.php';
+            }
+            include './view/authen/register.php';
             break;
         case 'shop':
             include 'view/product.php';

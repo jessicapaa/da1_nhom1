@@ -1,5 +1,5 @@
 <?php
-$sql = "SELECT orders.id,product.thumbnail, product.title, product.discount, order_details.num, order_details.total_money,orders.status
+$sql = "SELECT orders.id,product.thumbnail,orders.order_date, product.title, product.discount, order_details.num, order_details.total_money,orders.status
   from order_details JOIN orders ON order_details.order_id = orders.id JOIN product on order_details.product_id = product.id";
 
 $result = executeResult($sql);
@@ -33,8 +33,8 @@ $result_up = array_reduce($result, function ($a, $b) {
                     <td></td>
                     <td>Gía</td>
                     <td>Số lượng</td>
-                
-                    <td colspan="2">Tổng tiền</td>
+                    <td>Tổng tiền</td>
+                    <td>Ngày đặt hàng</td>
                 </tr>
             <tbody>
                 <?php
@@ -46,13 +46,13 @@ $result_up = array_reduce($result, function ($a, $b) {
                         <td>
                             <?= $stt; ?>
                         </td>
-                        <td colspan="5">
+                        <td colspan="6">
 
                         <?php foreach ($order as $order_detail) : ?>
                                
                                 <div class="row">
 
-                                    <div class="col-4 flex mb-1 gap-3">
+                                    <div class="col-3 flex mb-1 gap-3">
                                         <div>
                                             <img class="" src="public/photo/<?= $order_detail['thumbnail'] ?>" alt="" width="70px">
                                         </div>
@@ -61,13 +61,14 @@ $result_up = array_reduce($result, function ($a, $b) {
                                             <?= $order_detail['title'] ?>
                                         </div>
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col ">
                                         <?= $order_detail['discount'] ?>
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col">
                                         <?= $order_detail['num'] ?>
                                     </div>
-                                    <div class="col"><?= $order_detail['total_money'] ?></div>
+                                    <div class="col-2"><?= $order_detail['total_money'] ?></div>
+                                    <div class="col-3"><?= $order_detail['order_date'] ?></div>
                                 </div>
                         <?php endforeach; ?>
                         </td>

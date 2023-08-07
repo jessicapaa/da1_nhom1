@@ -47,10 +47,11 @@ function deleteCate($id) {
   $sql = "DELETE FROM category WHERE id = $id";
   execute($sql);
 }
-function deleteProduct($id) {
-  $sql = "DELETE FROM product WHERE id = $id";
-  execute($sql);
-}
+// function deleteProduct($id) {
+//   $sql = "DELETE FROM product WHERE id = $id";
+//   execute($sql);
+// }
+
 
 function viewEd($id) {
   

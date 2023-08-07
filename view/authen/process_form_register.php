@@ -1,5 +1,5 @@
 <?php
-require_once('../../utlis/utility.php');
+// require_once('../../utlis/utility.php');
 $fullname = $email = '';
 $msg = '';
 

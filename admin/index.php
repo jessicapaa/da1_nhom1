@@ -57,8 +57,10 @@ if (isset($_GET['act'])) {
             include 'product/update.php';
             break;
         case 'deleteProduct':
-            $id = $_GET['id'];
-            deleteProduct($id);
+            $id = getGet('id');
+            $updated_at = date("Y-m-d H:i:s");
+            $sql = "update product set deleted = 1, updated_at = '$updated_at' where id = $id";
+            execute($sql);
             include 'product/list.php';
             break;
 
@@ -73,34 +75,33 @@ if (isset($_GET['act'])) {
             break;
 
             // order
-        case 'listOrder': 
+        case 'listOrder':
             include 'order/list.php';
             break;
-        case 'hoanThanh': 
+        case 'hoanThanh':
             $id = $_GET['id'];
             $sql = "UPDATE orders set status = 1 where id = $id";
             execute($sql);
             include 'order/list.php';
             break;
-        case 'huy': 
+        case 'huy':
             $id = $_GET['id'];
             $sql = "UPDATE orders set status = 2 where id = $id";
             execute($sql);
             include 'order/list.php';
             break;
-          //detail
+            //detail
         case 'detail':
             include 'order/detail.php';
             break;
-        
-            default:
+
+        default:
             include 'thongke/list.php';
 
             break;
     }
-}else {
+} else {
     include 'thongke/list.php';
-
 }
 
 require_once('layouts/footer.php');

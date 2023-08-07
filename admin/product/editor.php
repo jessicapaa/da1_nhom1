@@ -92,7 +92,9 @@ if (isset($_POST['themmoi']) && $_POST['themmoi']) {
                     where id = '$id'";
                }
                execute($sql);
-               // header('Location :index.php?act=listProduct');
+               
+               header('location :index.php?act=listProduct');
+               die();
           } else {
                // insert
                $sql = "
@@ -100,8 +102,8 @@ if (isset($_POST['themmoi']) && $_POST['themmoi']) {
          values ('$thumbnail', '$title', '$price', '$discount','$description', '$created_at', '$updated_at', '$category_id',0)";
 
                execute($sql);
-               // header('Location :../index.php?act=listProduct');
-               // die();
+               header('location :index.php?act=listProduct');
+               die();
           }
      }
 }

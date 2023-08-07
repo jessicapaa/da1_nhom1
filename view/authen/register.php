@@ -1,6 +1,6 @@
 <?php
-session_start();
- require_once('../../connect/dbhelper.php');
+// session_start();
+//  require_once('../../connect/dbhelper.php');
  require_once('process_form_register.php');
 
  $user = getUserToken();

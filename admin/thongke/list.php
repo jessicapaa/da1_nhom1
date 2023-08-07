@@ -72,7 +72,9 @@ $daHuy = executeResult("SELECT COUNT(*)as dem FROM `orders` where status = 2 ");
                                     <div class="col-md-3">
                                         <div class="p-3 rounded-4 bg-primary">
                                             <div class="details">
-                                                <h3><?=$dM[0]['count']?></h3>
+                                                <h3>
+                                                    <?= $dM[0]['count'] ?>
+                                                </h3>
                                                 <h4>danh mục</h4>
                                             </div>
                                         </div>
@@ -80,7 +82,9 @@ $daHuy = executeResult("SELECT COUNT(*)as dem FROM `orders` where status = 2 ");
                                     <div class="col-md-3">
                                         <div class="p-3 rounded-4 bg-secondary">
                                             <div class="details">
-                                                <h3><?=$sp[0]['count']?></h3>
+                                                <h3>
+                                                    <?= $sp[0]['count'] ?>
+                                                </h3>
                                                 <h4>sản phẩm</h4>
                                             </div>
                                         </div>
@@ -88,7 +92,9 @@ $daHuy = executeResult("SELECT COUNT(*)as dem FROM `orders` where status = 2 ");
                                     <div class="col-md-3">
                                         <div class="p-3 rounded-4 bg-info">
                                             <div class="details">
-                                                <h3><?=$dh[0]['count']?></h3>
+                                                <h3>
+                                                    <?= $dh[0]['count'] ?>
+                                                </h3>
                                                 <h4>đơn hàng</h4>
                                             </div>
                                             <div id="spark3"></div>
@@ -97,7 +103,9 @@ $daHuy = executeResult("SELECT COUNT(*)as dem FROM `orders` where status = 2 ");
                                     <div class="col-md-3">
                                         <div class="p-3 rounded-4 bg-success">
                                             <div class="details">
-                                                <h3><?=$nd[0]['count']?></h3>
+                                                <h3>
+                                                    <?= $nd[0]['count'] ?>
+                                                </h3>
                                                 <h4>người dùng</h4>
                                             </div>
                                             <div id="spark4"></div>
@@ -121,7 +129,7 @@ $daHuy = executeResult("SELECT COUNT(*)as dem FROM `orders` where status = 2 ");
                                                 <th>Tổng Giá</th>
                                             </tr>
                                             <?php
-                                           
+
                                             $index = 0;
                                             foreach ($result as $item) {
                                                 echo '<tr>
@@ -131,14 +139,16 @@ $daHuy = executeResult("SELECT COUNT(*)as dem FROM `orders` where status = 2 ");
 		                                     		' . $item['soLuong'] . '
 			                                    </td>
 			                                    <td>
-			                                    	' .number_format($item['tongTien'])  . ' VNĐ
+			                                    	' . number_format($item['tongTien']) . ' VNĐ
 			                                    </td>
 		                                        </tr>';
                                             }
                                             ?>
                                         </table>
-                                        
-                                        <h4>Tổng: <?=number_format($tong['0']['tong'])  ?> VNĐ </h4>
+
+                                        <h4>Tổng:
+                                            <?= number_format($tong['0']['tong']) ?> VNĐ
+                                        </h4>
                                     </div>
                                     <div class="card-body">
                                         <div id="chart-doanh-thu-ngay"></div>
@@ -149,7 +159,7 @@ $daHuy = executeResult("SELECT COUNT(*)as dem FROM `orders` where status = 2 ");
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4>Sản phẩm bán chạy theo tháng     </h4>
+                                        <h4>Sản phẩm bán chạy theo tháng </h4>
                                         <table class="table table-bordered">
                                             <tr>
                                                 <th>STT</th>
@@ -159,10 +169,10 @@ $daHuy = executeResult("SELECT COUNT(*)as dem FROM `orders` where status = 2 ");
                                                 <th>Tổng Giá</th>
                                             </tr>
                                             <?php
-                                           
+
                                             $index = 0;
                                             foreach ($thang as $item) {
-                                                $tongTien = (int)$item['total_money']   *  (int)$item['total_quantity'];
+                                                $tongTien = (int) $item['total_money'] * (int) $item['total_quantity'];
                                                 echo '<tr>
 	                                     		<td>' . (++$index) . '</td>
 		                                     	<td>' . $item['title'] . '</td>
@@ -173,15 +183,17 @@ $daHuy = executeResult("SELECT COUNT(*)as dem FROM `orders` where status = 2 ");
 		                                     		' . $item['total_quantity'] . '
 			                                    </td>
 			                                    <td>
-			                                    	' .number_format($tongTien) . ' VNĐ
+			                                    	' . number_format($tongTien) . ' VNĐ
 
 			                                    </td>
 		                                        </tr>';
                                             }
                                             ?>
                                         </table>
-                                        
-                                        <h4>Tổng: <?=number_format($tong['0']['tong'])  ?> VNĐ </h4>
+
+                                        <h4>Tổng:
+                                            <?= number_format($tong['0']['tong']) ?> VNĐ
+                                        </h4>
                                     </div>
                                     <div class="card-body">
                                         <div id="chart-doanh-thu-ngay"></div>
@@ -202,39 +214,34 @@ $daHuy = executeResult("SELECT COUNT(*)as dem FROM `orders` where status = 2 ");
                                     <table class="table table-hover col-12 col-lg-12 col-md-12">
                                         <tr>
                                             <td>Tổng</td>
-                                            <td><?=$d[0]['dem']?></td>
+                                            <td>
+                                                <?= $d[0]['dem'] ?>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Đã xác nhận</td>
-                                            <td><?=$daXacNhan[0]['dem']?></td>
+                                            <td>
+                                                <?= $daXacNhan[0]['dem'] ?>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Chưa xác nhận</td>
-                                            <td><?=$choXacNhan[0]['dem']?></td>
+                                            <td>
+                                                <?= $choXacNhan[0]['dem'] ?>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Đã hủy</td>
-                                            <td><?=$daHuy[0]['dem']?></td>
+                                            <td>
+                                                <?= $daHuy[0]['dem'] ?>
+                                            </td>
                                         </tr>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-8">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Biểu đồ thống kê lượt bán theo tháng</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div id="chart-luot-dat-hang"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </section>
 
             </div>

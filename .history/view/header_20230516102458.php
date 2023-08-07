@@ -84,7 +84,7 @@ foreach ($_SESSION['cart'] as $item) {
 		<div class="container-menu-desktop">
 			<!-- Topbar -->
 			<div class="top-bar">
-				<div class="content-topbar flex-sb-m h-full container">
+				<div class="content-topbar flex-sb-m h-full container ">
 					<div class="left-top-bar">
 						Miễn phí đơn hàng với hóa đơn trên 1 triệu
 					</div>
